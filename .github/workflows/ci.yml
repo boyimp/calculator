@@ -1,14 +1,14 @@
 # In the name of Allah
-name: c#
+name: .NET
 on:
   push:
-    branchs: [main]
+    branchs: [ main ]
 jobs:
   build:
     runs-on: windows-latest
     steps:
       - name: checkout
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
 
     # Install the .NET Core workload
       - name: Install .NET Core
