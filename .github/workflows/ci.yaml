@@ -5,27 +5,20 @@ on:
     branchs: [main]
 jobs:
   build:
-    strategy:
-      matrix:
-        configuration: [Development]
     runs-on: windows-latest
-    env:                       
-      Test_Project_Path: calculator-test/calculator-test.csproj
     steps:
       - name: checkout
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
 
     # Install the .NET Core workload
       - name: Install .NET Core
-        uses: actions/setup-dotnet@v1
+      - uses: actions/setup-dotnet@v1
           with:
             dotnet-version: 6.0.102
 
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
       - name: Setup MSBuild.exe
-        uses: microsoft/setup-msbuild@v1.0.2
+      - uses: microsoft/setup-msbuild@v1.0.2
 
     # Execute all unit tests in the solution
       - name: Execute unit tests
